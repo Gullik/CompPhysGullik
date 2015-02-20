@@ -55,7 +55,7 @@ void setBoltzmannVelocity(mat *velocities, double temperature)
     //temperature is is in Kelvin, should change
 
     double mean = 0.;
-    double standardDeviation = sqrt(boltzmann*temperature/mass);
+    double standardDeviation = sqrt(temperature);
 
     long int idum = -1;
 

@@ -102,7 +102,7 @@
 		The implementation of the force will be along the following steps:
 		\begin{itemize}
 		\item Find vector between the two particles \( \vb{r}_{ij} = \vb{r}'_i - \vb{r}_j \)
-		\item Calculate \(r_{ij}'^2\), \( r_{ij}'^6 \) and \(r_{ij}'^12\) for a particle pair
+		\item Calculate \(r_{ij}'^2\), \( r_{ij}'^6 \) and \(r_{ij}'^{12}\) for a particle pair
 		\item Calculate the modified force \( 24   \sum_j{  \left[ 2 r'^{-12}_{ij}  - r'^{-6}_{ij} \right] r_{ij}'^{-2}  \vb{r}'_{ij}  } \)
 		\item Add the force to both particles force account, halves the necessary computations. One positive one negative
 		\end{itemize}

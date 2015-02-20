@@ -2,18 +2,20 @@
 #define LIST_H_
 
 
-
-void test();
-
 /*
  * List interface
  */
 
+
+
 struct list;
+
 typedef struct list list_t;
+
 
 // Create new list
 list_t *list_create(void);
+
 
 // Free list. All nodes are freed, but not items pointed to by nodes.
 void list_destroy(list_t *list);

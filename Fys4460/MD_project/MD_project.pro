@@ -10,7 +10,9 @@ SOURCES += main.cpp \
     integrator.cpp \
     unitconverter.cpp \
     potential.cpp \
-    list/list.c
+    list/list.cpp \
+    sample.cpp \
+    list/neighborlist.cpp
 
 
 HEADERS += \
@@ -20,5 +22,7 @@ HEADERS += \
     integrator.h \
     unitconverter.h \
     potential.h \
-    list/list.h
+    list/list.h \
+    sample.h \
+    list/neighborlist.h
 

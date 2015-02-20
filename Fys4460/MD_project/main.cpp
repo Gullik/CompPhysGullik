@@ -7,6 +7,8 @@
 #include "integrator.h"
 #include "unitconverter.h"
 #include "list/list.h"
+#include "sample.h"
+#include "list/neighborlist.h"
 
 using namespace std;
 using namespace arma;
@@ -17,21 +19,23 @@ double cellLength = 5.26/3.405;
 double epsilon = tempAtomicFromSI(119.8)*boltzmann;
 
 rowvec systemSize = zeros <rowvec> (1,3);
+double cutOffLength = 1.;
+
+double potentialEnergy = 0;
+double kineticEnergy = 0;
+double measuredTemperature = 0;
 
 
 int main()
 {
-    int nUnitCells = 2;          //Number of fcc crystals, in one dimension
+    int nUnitCells = 6;          //Number of fcc crystals, in one dimension
     double temperature = tempMDFromSI(100);
-    int nSteps = 10;
-    double dt = 0.005;
-
-    //Create the list
-
-    list_t *list = list_create();
+    int nSteps = 1000;
+    double dt = 0.001;
 
 //    string filepath = "../MD_project/states/" "state_" + to_string(nUnitCells) + "_" + to_string(tempMDToSI(temperature)) + ".xyz";
     string filepath = "../MD_project/states/testState.xyz";
+    const char* samplePath = "../MD_project/statistics/stats";
 
     const char* statefile = filepath.c_str();
 
@@ -47,9 +51,17 @@ int main()
     //setting the global variable, systemSize, it is used in the force calculations and in the periodic boundary implementation
     systemSize << cellLength * nUnitCells << cellLength * nUnitCells << cellLength * nUnitCells;
 
+    //Setting up the neighborList
+    NeighborList *m_list;
+    m_list = new NeighborList(cutOffLength, systemSize);
+    m_list->sortAtoms(atoms, systemSize); //Just for testing purposes
+
+
     //Opening statefile
-    ofstream file;
+    ofstream file, sampleFile;
     file.open(statefile);
+    sampleFile.open(samplePath);
+
 
 
     for(int i = 0; i < nSteps ; i++)
@@ -57,8 +69,12 @@ int main()
         if(i % 100 == 0)
             cout << "At step number: " << i << endl;
 
+
         step(&atoms, &velocities, &forces, dt);
         save(&atoms, &velocities, file);
+
+        if(i % 1 == 0)
+            sample(&atoms, &velocities, dt*i, sampleFile);
     }
 
 

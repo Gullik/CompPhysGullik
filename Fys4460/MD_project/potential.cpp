@@ -1,6 +1,8 @@
 #include "potential.h"
 
 extern vec systemSize;
+extern double epsilon;
+extern double potentialEnergy;
 
 
 void calculateForces(mat &atoms, mat &forces)
@@ -15,16 +17,13 @@ void calculateForces(mat &atoms, mat &forces)
 
     //Resetting the force
     forces = zeros <mat> (forces.n_rows,3);
+    potentialEnergy = 0;
 
     for(int i = 0; i < atoms.n_rows; i++)
     {
         for(int j = i + 1; j < atoms.n_rows; j++)
         {
             rij = atoms.row(j) - atoms.row(i);
-
-//            cout << "atom " << i << atoms.row(i) << endl;
-//            cout << "atom " << j << atoms.row(j) << endl;
-//            cout << rij(0);
 
             if( rij(0) > systemSize(0)/2. )
                 rij(0) -= systemSize(0);
@@ -51,6 +50,9 @@ void calculateForces(mat &atoms, mat &forces)
 
             forces.row(i) -= forceMagnitude * rij;
             forces.row(j) += forceMagnitude * rij;
+
+            //Calculating the potential energy since we already know the length beetween the atoms
+            potentialEnergy +=  4*(distanceNeg12 - distanceNeg6);
         }
     }
 

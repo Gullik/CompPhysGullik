@@ -4,9 +4,15 @@
 extern double mass;
 extern rowvec systemSize;
 
+bool firstStep = true;
 
 void step(mat *atoms, mat *velocities, mat *forces, double dt)
 {
+    if(firstStep)
+    {
+        calculateForces(*atoms, *forces);
+        firstStep = false;
+     }
 
     updateVelocities(*velocities, *forces, dt);
 
