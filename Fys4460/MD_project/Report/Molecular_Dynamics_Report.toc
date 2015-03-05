@@ -1,5 +1,6 @@
 \contentsline {section}{\numberline {1}Part 1:}{1}{section.1}
-\contentsline {subsection}{\numberline {1.1}Task e: Computing forces}{1}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}NonDimensionality}{2}{subsection.1.2}
-\contentsline {subsubsection}{\numberline {1.2.1}Algorithm to implement force}{2}{subsubsection.1.2.1}
+\contentsline {subsection}{\numberline {1.1}Task a: Creating a FCC lattice}{1}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Task e: Computing forces}{2}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}NonDimensionality}{2}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Algorithm to implement force}{3}{subsubsection.1.3.1}
 \contentsline {section}{\numberline {A}Unit scheme}{3}{appendix.A}

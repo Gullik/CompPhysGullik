@@ -54,7 +54,7 @@ int main()
     //Setting up the neighborList
     NeighborList *m_list;
     m_list = new NeighborList(cutOffLength, systemSize);
-    m_list->sortAtoms(atoms, systemSize); //Just for testing purposes
+//    m_list->sortAtoms(atoms, systemSize); //Just for testing purposes
 
 
     //Opening statefile

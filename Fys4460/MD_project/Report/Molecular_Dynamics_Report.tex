@@ -45,6 +45,24 @@
 \tableofcontents
 
 \section{Part 1:}
+\subsection{Task a: Creating a FCC lattice}
+	This task is implemented in the function createFCCLattice()
+\\ \\
+	\noindent The noble gas argon should have a stable lattice structure when a solid, by letting the system start in a stable situation we avoid a lot of energy to be infused into the systems temperature due to it minimizing potential energy. The implementation is done by going through several nodes, \(R_i\), put on a grid in the box and then placing 4 atoms around each node. Let \(c_l\) be the length between nodes.
+
+	\begin{align*}
+	\vb{R}_{ij} = \vb{R}_i + \vb{r}_j \qquad{j }= \{1,2,3,4\} \qquad{i = }\{1,2, ... , 4\text{N}_{\text{atoms}}\}
+	\end{align*}
+
+	\begin{align*}
+		\vb{r}_1 &= 0 \vu{i} + 0 \vu{j} + 0 \vu{k}
+		\\
+		\vb{r}_2 &= \frac{c_l}{2} \vu{i} + \frac{c_l}{2} \vu{j} + 0 \vu{k}
+		\\
+		\vb{r}_3 &= 0 \vu{i} + \frac{c_l}{2} \vu{j} + \frac{c_l}{2} \vu{k}
+		\\
+		\vb{r}_4 &= \frac{c_l}{2} \vu{i} + 0 \vu{j} + \frac{c_l}{2} \vu{k}
+	\end{align*}
 
 \subsection{Task e: Computing forces}
 
