@@ -40,10 +40,11 @@ void testNeighbourCycling()
      arma::cube neighborVisits = arma::zeros( noOfNeighbors, noOfNeighbors, noOfNeighbors);
 
 
-#pragma omp parallel private( i, j, k, next_i, next_j, next_k, prev_i, prev_j, prev_k, tid) shared(neighborVisits)
+//#pragma omp parallel private( i, j, k, next_i, next_j, next_k, prev_i, prev_j, prev_k, tid) shared(neighborVisits)
 {
 
-    #pragma omp for schedule(auto)
+//    #pragma omp for schedule(auto)
+    #pragma omp parallel for private(i,j,k, next_i, next_j, next_k, prev_i, prev_j, prev_k) shared(neighborVisits)
     for(i = 0 ; i < noOfNeighbors ; i ++)
     {
         for(j=0; j < noOfNeighbors ; j++)
