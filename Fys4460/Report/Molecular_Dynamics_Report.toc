@@ -6,4 +6,6 @@
 \contentsline {subsubsection}{\numberline {1.4.1}Algorithm to implement force}{3}{subsubsection.1.4.1}
 \contentsline {subsection}{\numberline {1.5}h: Neighbour lists}{4}{subsection.1.5}
 \contentsline {subsection}{\numberline {1.6}Task i: Uniform velocity distribution and central limit theorem}{4}{subsection.1.6}
-\contentsline {section}{\numberline {A}Unit scheme}{6}{appendix.A}
+\contentsline {subsection}{\numberline {1.7}Task o: Radial distribution function}{6}{subsection.1.7}
+\contentsline {subsection}{\numberline {1.8}Task g: Implementing a thermostat}{6}{subsection.1.8}
+\contentsline {section}{\numberline {A}Unit scheme}{8}{appendix.A}
